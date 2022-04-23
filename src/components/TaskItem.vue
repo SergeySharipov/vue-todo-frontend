@@ -1,10 +1,6 @@
 <template>
-  <div class="task-item" v-bind:class="{ 'is-complete': task.completed }">
-    <input
-      type="checkbox"
-      v-on:change="markComplete"
-      v-bind:checked="task.completed"
-    />
+  <div class="task-item" :class="{ 'is-complete': task.completed }">
+    <input type="checkbox" @change="markComplete" :checked="task.completed" />
     <div>
       <h4>{{ task.title }}</h4>
       <p>{{ task.description }}</p>
@@ -20,7 +16,7 @@ export default {
   methods: {
     markComplete() {
       this.task.completed = !this.task.completed;
-     // const { id, title, description, completed } = this.task;
+      // const { id, title, description, completed } = this.task;
       this.$emit("update-task");
     },
   },

@@ -1,11 +1,7 @@
 <template>
   <div id="app">
-    <AddTask v-on:add-task="addTask" />
-    <Tasks
-      v-bind:tasks="tasks"
-      v-on:update-task="updateTask"
-      v-on:delete-task="deleteTask"
-    />
+    <AddTask @add-task="addTask" />
+    <Tasks :tasks="tasks" @update-task="updateTask" @delete-task="deleteTask" />
   </div>
 </template>
 
